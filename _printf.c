@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 		}
 		else if (*character == 'd')
 		{
-			characters_printed += print_integers(va_list(arglist);
+			characters_printed += print_integer(va_list arglist);
 		}
 		else if (*character == '%')
 		{
