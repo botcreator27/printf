@@ -1,6 +1,4 @@
 #include "main.h"
-#include <unistd.h>
-#include <string.h>
 
 /**
  * _printf - prints out passed strings to stdout
@@ -57,4 +55,3 @@ int _printf(const char *format, ...)
 	va_end(arglist);
 	return (characters_printed); /* returns total number of characters printed */
 }
-
