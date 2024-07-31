@@ -6,7 +6,6 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-int print_integers(va_list arglist);
 
 #endif /* MAIN_H */
 
