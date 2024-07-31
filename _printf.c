@@ -43,10 +43,6 @@ int _printf(const char *format, ...)
 			write(1, str, str_length);
 			characters_printed += str_length; /* count whole length of string */
 		}
-		else if (*character == 'd')
-		{
-			characters_printed += print_integer(va_list arglist);
-		}
 		else if (*character == '%')
 		{
 			write(1, character, 1);
