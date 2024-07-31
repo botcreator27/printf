@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	int characters_printed = 0; /* counts the characters printed */
 	const char *character;
 	va_list arglist;
-	char buffer[20];
 
 	if (format == NULL)
 	{
@@ -49,16 +48,11 @@ int _printf(const char *format, ...)
 			write(1, character, 1);
 			characters_printed++;
 		}
-		else if (*character == 'd' || *character == 'i')
-		{
-			int int_value = va_arg(arglist, int);
-			int int_len = snprintf(buffer, sizeof(buffer), "%d", int_value);
-			write(1, buffer, int_len);
-			characters_printed += int_len;
-		}
 		else
 		{
+			write(1, character - 1, 1);
 			write(1, character, 1);
+			characters_printed += 2;
 		}
 	}
 	}
