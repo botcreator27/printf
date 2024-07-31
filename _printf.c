@@ -48,6 +48,12 @@ int _printf(const char *format, ...)
 			write(1, character, 1);
 			characters_printed++;
 		}
+		else
+		{
+			write(1, character - 1, 1);
+			write(1, character, 1);
+			characters_printed += 2;
+		}
 
 	}
 	}
