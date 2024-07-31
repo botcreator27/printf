@@ -6,7 +6,7 @@
  *
  * Return: number of characters printed.
  */
-int print_integer(va_list arglist)
+int print_integers(va_list arglist)
 {
 	int n = va_arg(arglist, int);
 	int count = 0;
