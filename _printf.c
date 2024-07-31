@@ -51,7 +51,6 @@ int _printf(const char *format, ...)
 
 	}
 	}
-
 	va_end(arglist);
 	return (characters_printed); /* returns total number of characters printed */
 }
