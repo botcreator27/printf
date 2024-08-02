@@ -7,6 +7,39 @@
  * Return: the number of characters printed.
  */
 
+int print_num(int num)
+{
+/* deals with integer cases */
+
+	int count = 0;
+
+	/* when num is 0 */
+	if (num == 0)
+	{
+		write( 1, "0", 1);
+		count++;
+		return (1);
+	}
+	if (num < 0)
+	{
+		write(1, "-", 1);
+		num = num * -1;
+		count++;
+	}
+
+	if (num / 10 > 0)
+	{
+		count += print_num(num / 10);
+
+	}
+	char digit =  (num % 10) + '0';
+	int result = write(1, &digit, 1);
+	count += result;
+
+	return (count);
+}
+
+
 int _printf(const char *format, ...)
 {
 	int characters_printed = 0; /* counts the characters printed */
@@ -47,6 +80,11 @@ int _printf(const char *format, ...)
 		{
 			write(1, character, 1);
 			characters_printed++;
+		}
+		else if (*character == 'd' || *character == 'i')
+		{
+			int num = va_arg(arglist, int);
+			characters_printed += print_num(num);
 		}
 		else
 		{

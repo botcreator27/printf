@@ -7,6 +7,7 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
+int print_num(int  num);
 
 #endif /* MAIN_H */
 
