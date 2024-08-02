@@ -12,6 +12,8 @@ int print_num(int num)
 /* deals with integer cases */
 
 	int count = 0;
+	char digit;
+	int result;
 
 	/* when num is 0 */
 	if (num == 0)
@@ -32,8 +34,8 @@ int print_num(int num)
 		count += print_num(num / 10);
 
 	}
-	char digit =  (num % 10) + '0';
-	int result = write(1, &digit, 1);
+	digit =  (num % 10) + '0';
+	result = write(1, &digit, 1);
 	count += result;
 
 	return (count);
