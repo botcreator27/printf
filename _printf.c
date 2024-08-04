@@ -84,7 +84,9 @@ int _printf(const char *format, ...)
 
 			if (str == NULL)
 			{
-			write(1, "(null)", 1);
+			str = "(null)";
+			write(1, str, 1);
+			characters_printed++;
 			}
 			else if (str != NULL)
 			{
