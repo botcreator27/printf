@@ -82,16 +82,16 @@ int _printf(const char *format, ...)
 		{
 			char *str = va_arg(arglist, char *);
 
-			if (str != NULL)
+			if (str == NULL)
+			{
+			write(1, "(null)", 1);
+			}
+			else if (str != NULL)
 			{
 			int str_length = strlen(str); /*calculate string length */
 
 			write(1, str, str_length);
 			characters_printed += str_length;
-			}
-			else
-			{
-			write(1, "(null)", 0);
 			}
 		}
 		else if (*character == '%')
