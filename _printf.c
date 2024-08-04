@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * _printf - prints out passed strings to stdout
- * @format: format string passed.
- *
- * Return: the number of characters printed.
+ * print_num - prints out numbers recursively
+ * @num: integer to be printed
+ * Return: number of digits
  */
 
 int print_num(int num)
@@ -18,7 +17,7 @@ int print_num(int num)
 	/* when num is 0 */
 	if (num == 0)
 	{
-		write( 1, "0", 1);
+		write(1, "0", 1);
 		count++;
 		return (1);
 	}
@@ -41,6 +40,12 @@ int print_num(int num)
 	return (count);
 }
 
+/**
+ * _printf - prints out strings passed and substitues specifiers
+ * @format: string passed
+ * Return: number of characters printed
+ *
+ */
 
 int _printf(const char *format, ...)
 {
@@ -48,11 +53,12 @@ int _printf(const char *format, ...)
 	const char *character;
 	va_list arglist;
 
+	va_start(arglist, format);
+
 	if (format == NULL)
 	{
 		return (0);
 	}
-	va_start(arglist, format);
 
 	for (character = format; *character != '\0'; character++)
 	{
@@ -68,15 +74,25 @@ int _printf(const char *format, ...)
 		if (*character == 'c') /* case 'c' */
 		{
 			char c = va_arg(arglist, int);
+
 			write(1, &c, 1);
 			characters_printed++;
 		}
 		else if (*character == 's')
 		{
 			char *str = va_arg(arglist, char *);
+
+			if (str != NULL)
+			{
 			int str_length = strlen(str); /*calculate string length */
+
 			write(1, str, str_length);
-			characters_printed += str_length; /* count whole length of string */
+			characters_printed += str_length;
+			}
+			else
+			{
+			write(1, "(null)", 0);
+			}
 		}
 		else if (*character == '%')
 		{
