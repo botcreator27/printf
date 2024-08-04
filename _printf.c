@@ -86,9 +86,8 @@ int _printf(const char *format, ...)
 			{
 			str = "(null)";
 			write(1, str, 1);
-			characters_printed++;
 			}
-			else if (str != NULL)
+			else
 			{
 			int str_length = strlen(str); /*calculate string length */
 
