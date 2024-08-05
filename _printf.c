@@ -75,6 +75,7 @@ int _printf(const char *format, ...)
 		{
 			write(1, "%", 1);
 			characters_printed++;
+			break;
 		}
 		if (*character == 'c') /* case 'c' */
 		{
