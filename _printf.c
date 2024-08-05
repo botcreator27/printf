@@ -51,6 +51,7 @@ int _printf(const char *format, ...)
 {
 	int characters_printed = 0; /* counts the characters printed */
 	const char *character;
+	int i;
 	va_list arglist;
 
 	va_start(arglist, format);
@@ -90,12 +91,13 @@ int _printf(const char *format, ...)
 			{
 			str = "(null)";
 			i = 0;
+
 			while (*str)
-				if (str[i] != '\0')
-				{
-					write(1, str, 1);
-					str++;
-				}
+			if (str[i] != '\0')
+			{
+			write(1, str, 1);
+			str++;
+			}
 			}
 			else
 			{
