@@ -52,7 +52,6 @@ int _printf(const char *format, ...)
 	int characters_printed = 0; /* counts the characters printed */
 	const char *character;
 	va_list arglist;
-	int str_length;
 
 	va_start(arglist, format);
 
@@ -90,9 +89,17 @@ int _printf(const char *format, ...)
 			if (str == NULL)
 			{
 			str = "(null)";
+			i = 0;
+			while (*str)
+				if (str[i] != '\0')
+				{
+					write(1, str, 1);
+					str++;
+				}
 			}
-
-			str_length = strlen(str); /*calculate string length */
+			else
+			{
+			int str_length = strlen(str); /*calculate string length */
 
 			write(1, str, str_length);
 			characters_printed += str_length;
