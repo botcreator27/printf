@@ -57,7 +57,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		return (0);
+		return (-1);
 	}
 
 	for (character = format; *character != '\0'; character++)
